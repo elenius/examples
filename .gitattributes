@@ -1,0 +1,9 @@
+# Treated as Binaries #
+#######################
+*.xlsx binary
+*.xls binary
+*.docx binary
+*.jpg binary
+*.eps binary
+*.png binary
+*.wmf binary
