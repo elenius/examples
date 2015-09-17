@@ -1,3 +1,3 @@
-# Information
+# Info
 
-Exempelkod för olika saker.
+Examples in R.
