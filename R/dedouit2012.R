@@ -171,6 +171,7 @@ quantile(barn.par, c(0.025, 0.975))
 resultat <- tibble(vuxna = vuxna.par, barn = barn.par) %>% gather(variable, value) %>%
   mutate(ifelse())
 
-ggplot(resultat) + aes(x = value) + geom_histogram(bins = 100) +
+ggplot(resultat) + aes(x = value, fill = variable) + geom_histogram(bins = 100) +
   geom_vline(xintercept = point.barn, color = "red") +
-  geom_vline(xintercept = point.vuxna, color = "blue")
+  geom_vline(xintercept = point.vuxna, color = "blue") + theme_bw() +
+  theme(legend.position = "top", legend.title = element_blank())
