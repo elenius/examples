@@ -168,8 +168,7 @@ quantile(vuxna.par, c(0.025, 0.975))
 quantile(barn.par, c(0.025, 0.975))
 
 # plottar
-resultat <- tibble(vuxna = vuxna.par, barn = barn.par) %>% gather(variable, value) %>%
-  mutate(ifelse())
+resultat <- tibble(vuxna = vuxna.par, barn = barn.par) %>% gather(variable, value)
 
 ggplot(resultat) + aes(x = value, fill = variable) + geom_histogram(bins = 100) +
   geom_vline(xintercept = point.barn, color = "red") +
