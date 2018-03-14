@@ -103,10 +103,10 @@ par_boot_dedouit2012 <- function(boot.n = 1000, dat = dat) {
     cbind(moget, omoget, age = dat$age)
   }
 
-  # Create a cluster via makeCluster (2 cores)
+  # Skapar kluster, använder antal kärnor - 1
   cl <- makeCluster(detectCores() - 1)
 
-  # Export the play() function to the cluster
+  # Exportera funktioner till klustret
   clusterExport(cl, c("sim_fun", "dat", "tibble", "as_tibble"))
 
   # generate bootstrapped dataset
@@ -170,7 +170,7 @@ quantile(barn.par, c(0.025, 0.975))
 # plottar
 resultat <- tibble(vuxna = vuxna.par, barn = barn.par) %>% gather(variable, value)
 
-ggplot(resultat) + aes(x = value, fill = variable) + geom_histogram(bins = 100) +
+ggplot(resultat) + aes(x = value, fill = variable) + geom_histogram(bins = 300) +
   geom_vline(xintercept = point.barn, color = "red") +
   geom_vline(xintercept = point.vuxna, color = "blue") + theme_bw() +
   theme(legend.position = "top", legend.title = element_blank())
